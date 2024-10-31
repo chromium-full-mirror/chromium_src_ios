@@ -10,7 +10,8 @@ source_set("messaging") {
 
   deps = [
     "//base",
-    "//components/saved_tab_groups/messaging",
+    "//components/collaboration/internal:messaging_internal",
+    "//components/collaboration/public",
     "//components/saved_tab_groups/public:features",
     "//ios/chrome/browser/collaboration/model:features",
     "//ios/chrome/browser/data_sharing/model",

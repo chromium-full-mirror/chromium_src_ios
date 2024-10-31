@@ -2,7 +2,7 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
-#import "ios/chrome/browser/saved_tab_groups/model/messaging/messaging_backend_service_factory.h"
+#import "ios/chrome/browser/collaboration/model/messaging/messaging_backend_service_factory.h"
 
 #import "base/test/scoped_feature_list.h"
 #import "components/data_sharing/public/features.h"
@@ -11,7 +11,7 @@
 #import "ios/web/public/test/web_task_environment.h"
 #import "testing/platform_test.h"
 
-namespace tab_groups::messaging {
+namespace collaboration::messaging {
 
 class MessagingBackendServiceFactoryTest : public PlatformTest {
  public:
@@ -51,4 +51,4 @@ TEST_F(MessagingBackendServiceFactoryTest, ServiceNotCreatedInIncognito) {
   EXPECT_FALSE(service);
 }
 
-}  // namespace tab_groups::messaging
+}  // namespace collaboration::messaging
