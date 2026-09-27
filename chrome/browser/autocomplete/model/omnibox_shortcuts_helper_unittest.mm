@@ -154,7 +154,7 @@ TEST_F(OmniboxShortcutsHelperTest, SuccessfulNavigationAddsShortcut) {
   InitShortcutsBackend();
 
   scoped_refptr<FakeAutocompleteProvider> bookmark_provider =
-      new FakeAutocompleteProvider(AutocompleteProvider::Type::TYPE_BOOKMARK);
+      new FakeAutocompleteProvider(AutocompleteProvider::Type::kBookmark);
   AutocompleteMatch bookmark_match(
       bookmark_provider.get(), 400, true,
       omnibox::AutocompleteMatchType::kBookmarkTitle);
@@ -178,7 +178,7 @@ TEST_F(OmniboxShortcutsHelperTest, UnsuccessfulNavigationDontAddShortcut) {
   InitShortcutsBackend();
 
   scoped_refptr<FakeAutocompleteProvider> bookmark_provider =
-      new FakeAutocompleteProvider(AutocompleteProvider::Type::TYPE_BOOKMARK);
+      new FakeAutocompleteProvider(AutocompleteProvider::Type::kBookmark);
   AutocompleteMatch bookmark_match(
       bookmark_provider.get(), 400, true,
       omnibox::AutocompleteMatchType::kBookmarkTitle);
@@ -218,7 +218,7 @@ TEST_F(OmniboxShortcutsHelperTest, SuccessfulNonOmniboxDontAddShortcut) {
   InitShortcutsBackend();
 
   scoped_refptr<FakeAutocompleteProvider> bookmark_provider =
-      new FakeAutocompleteProvider(AutocompleteProvider::Type::TYPE_BOOKMARK);
+      new FakeAutocompleteProvider(AutocompleteProvider::Type::kBookmark);
   AutocompleteMatch bookmark_match(
       bookmark_provider.get(), 400, true,
       omnibox::AutocompleteMatchType::kBookmarkTitle);
@@ -255,7 +255,7 @@ TEST_F(OmniboxShortcutsHelperTest,
   size_t i = 0;
   for (auto type : search_types) {
     scoped_refptr<FakeAutocompleteProvider> provider =
-        new FakeAutocompleteProvider(AutocompleteProvider::TYPE_SEARCH);
+        new FakeAutocompleteProvider(AutocompleteProvider::Type::kSearch);
     AutocompleteMatch match(provider.get(), 400, true, type);
     match.search_terms_args = nullptr;
     match.destination_url = GURL("http://www.google.com/search?q=test");
