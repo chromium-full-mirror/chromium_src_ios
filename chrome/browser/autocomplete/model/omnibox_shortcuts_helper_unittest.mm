@@ -155,8 +155,9 @@ TEST_F(OmniboxShortcutsHelperTest, SuccessfulNavigationAddsShortcut) {
 
   scoped_refptr<FakeAutocompleteProvider> bookmark_provider =
       new FakeAutocompleteProvider(AutocompleteProvider::Type::TYPE_BOOKMARK);
-  AutocompleteMatch bookmark_match(bookmark_provider.get(), 400, true,
-                                   AutocompleteMatchType::BOOKMARK_TITLE);
+  AutocompleteMatch bookmark_match(
+      bookmark_provider.get(), 400, true,
+      omnibox::AutocompleteMatchType::kBookmarkTitle);
 
   // Navigate to `bookmark_match` with `search_terms`.
   std::u16string search_terms = u"input";
@@ -178,8 +179,9 @@ TEST_F(OmniboxShortcutsHelperTest, UnsuccessfulNavigationDontAddShortcut) {
 
   scoped_refptr<FakeAutocompleteProvider> bookmark_provider =
       new FakeAutocompleteProvider(AutocompleteProvider::Type::TYPE_BOOKMARK);
-  AutocompleteMatch bookmark_match(bookmark_provider.get(), 400, true,
-                                   AutocompleteMatchType::BOOKMARK_TITLE);
+  AutocompleteMatch bookmark_match(
+      bookmark_provider.get(), 400, true,
+      omnibox::AutocompleteMatchType::kBookmarkTitle);
 
   // Navigate using `search_terms`.
   std::u16string search_terms = u"input";
@@ -217,8 +219,9 @@ TEST_F(OmniboxShortcutsHelperTest, SuccessfulNonOmniboxDontAddShortcut) {
 
   scoped_refptr<FakeAutocompleteProvider> bookmark_provider =
       new FakeAutocompleteProvider(AutocompleteProvider::Type::TYPE_BOOKMARK);
-  AutocompleteMatch bookmark_match(bookmark_provider.get(), 400, true,
-                                   AutocompleteMatchType::BOOKMARK_TITLE);
+  AutocompleteMatch bookmark_match(
+      bookmark_provider.get(), 400, true,
+      omnibox::AutocompleteMatchType::kBookmarkTitle);
 
   // Navigate to `bookmark_match` with `search_terms`.
   std::u16string search_terms = u"input";
@@ -243,10 +246,10 @@ TEST_F(OmniboxShortcutsHelperTest,
        SearchMatchesWithoutSearchTermsArgsDoesNotCrash) {
   InitShortcutsBackend();
 
-  AutocompleteMatchType::Type search_types[] = {
-      AutocompleteMatchType::CLIPBOARD_TEXT,
-      AutocompleteMatchType::CLIPBOARD_IMAGE,
-      AutocompleteMatchType::VOICE_SUGGEST,
+  omnibox::AutocompleteMatchType search_types[] = {
+      omnibox::AutocompleteMatchType::kClipboardText,
+      omnibox::AutocompleteMatchType::kClipboardImage,
+      omnibox::AutocompleteMatchType::kVoiceSuggest,
   };
 
   size_t i = 0;
